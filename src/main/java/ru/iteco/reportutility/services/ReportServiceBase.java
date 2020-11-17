@@ -15,6 +15,10 @@ import java.util.Arrays;
  *
  * @author Ilya_Sukhachev
  */
+// Использован шаблонный метод.
+// Использован интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов.
+// Также реализован абстрактный класс в качестве шаблонного класса, потомки реализуют его protected функциональность.
+// Классы Csv, Txt, Xslx - потомки
 public abstract class ReportServiceBase implements ReportService {
 
     private final String[] args;
