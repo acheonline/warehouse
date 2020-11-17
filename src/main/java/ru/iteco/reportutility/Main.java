@@ -19,8 +19,8 @@ public class Main {
 
     private static final String TAB = "\t";
 
-    // //opt/git/iteco/dp/inspection/src/main/resources/table.txt -withData -weightSum -costSum
-    // //opt/git/iteco/dp/inspection/src/main/resources/table.csv -withData -weightSum -costSum
+    // src/main/resources/table.txt -withData -weightSum -costSum
+    // src/main/resources/table.csv -withData -weightSum -costSum
     public static void main(String[] args) {
         ReportService service;
         try {
@@ -38,7 +38,7 @@ public class Main {
             System.out.println(e);
         }
     }
-
+    //Нужно использовать паттерн стратегия для выбора обработчика
     private static ReportService getReportService(String[] args) throws Exception {
         var filename = args[0];
 
@@ -57,6 +57,7 @@ public class Main {
         throw new Exception("this extension not supported");
     }
 
+    //Нужно использовать паттерн стратегия для выбора обработчика
     private static void printReport(Report report) {
         if (report.getConfig().isWithData() && report.getData() != null && report.getData().length != 0) {
             var headerRow = "Наименование\tОбъём упаковки\tМасса упаковки\tСтоимость\tКоличество";
