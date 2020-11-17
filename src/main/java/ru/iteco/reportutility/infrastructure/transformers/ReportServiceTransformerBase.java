@@ -9,6 +9,7 @@ import ru.iteco.reportutility.models.Report;
  *
  * @author Ilya_Sukhachev
  */
+//шаблонный метод. ReportServiceTransformerBase - асбтракный шаблонный класс. Потомки реализуют его protected функциональность
 public abstract class ReportServiceTransformerBase implements DataTransformer {
 
     protected final DataTransformer dataTransformer;

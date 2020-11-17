@@ -7,6 +7,7 @@ import ru.iteco.reportutility.models.Report;
  *
  * @author Ilya_Sukhachev
  */
+//фабричный метод для создания разных видов отчетности
 public interface ReportService {
 
     Report createReport();

@@ -8,6 +8,7 @@ import ru.iteco.reportutility.models.Report;
  *
  * @author Ilya_Sukhachev
  */
+//фабричный метод для использования разных видов трансформеров
 public interface DataTransformer {
 
     Report transformData(DataRow[] data);
