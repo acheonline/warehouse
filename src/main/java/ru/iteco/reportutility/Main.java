@@ -1,6 +1,7 @@
 package ru.iteco.reportutility;
 
 import org.apache.commons.lang.StringUtils;
+import ru.iteco.reportutility.infrastructure.handlers.reports.ReportServiceHandler;
 import ru.iteco.reportutility.models.Report;
 import ru.iteco.reportutility.models.ReportRow;
 import ru.iteco.reportutility.services.CsvReportService;
@@ -38,26 +39,13 @@ public class Main {
             System.out.println(e);
         }
     }
-    //Нужно использовать паттерн стратегия для выбора обработчика
+    //Нужно использовать паттерн chain of responsibility для выбора обработчика
     private static ReportService getReportService(String[] args) throws Exception {
-        var filename = args[0];
-
-        if (filename.endsWith(".txt")) {
-            return new TxtReportService(args);
-        }
-
-        if (filename.endsWith(".csv")) {
-            return new CsvReportService(args);
-        }
-
-        if (filename.endsWith(".xlsx")) {
-            return new XlsxReportService(args);
-        }
-
-        throw new Exception("this extension not supported");
+        ReportServiceHandler report = new ReportServiceHandler(args);
+        return report.defineHandler(args);
     }
 
-    //Нужно использовать паттерн стратегия для выбора обработчика
+    //Нужно использовать паттерн chain of responsibility для выбора обработчика
     private static void printReport(Report report) {
         if (report.getConfig().isWithData() && report.getData() != null && report.getData().length != 0) {
             var headerRow = "Наименование\tОбъём упаковки\tМасса упаковки\tСтоимость\tКоличество";

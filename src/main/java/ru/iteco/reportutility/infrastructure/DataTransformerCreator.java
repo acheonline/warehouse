@@ -13,7 +13,7 @@ import ru.iteco.reportutility.models.ReportConfig;
  * @author Ilya_Sukhachev
  */
 
-//реализация паттерна стратегия - в зависимости от параметров в конфигурации выбирается реализация
+//реализация паттерна chain or responsibility - в зависимости от параметров в конфигурации выбирается реализация
 public class DataTransformerCreator {
 
     public static DataTransformer createTransformer(ReportConfig config) {
